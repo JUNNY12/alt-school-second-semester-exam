@@ -1,0 +1,85 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  background-color: rgb(142, 116, 107);
+}
+
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 3rem;
+  padding: 1rem;
+  background: rgb(18, 14, 14);
+  position: fixed;
+  width: 100%;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.section-container{
+  padding-top: 5rem;
+}
+
+.header{
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.header-two{
+  margin-bottom: 3rem;
+}
+
+.repository,
+.home,
+.page-not-found{
+  margin: 2rem;
+}
+
+.page-not-found p{
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.back-btn{
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+   border-radius: 4px;
+}
+
+.page-not-found{
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.card-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.card{
+  background-color: #faebd7;
+  height: 300px;
+  padding: 2rem;
+  cursor: pointer;
+  border-radius: 8px;
+}
