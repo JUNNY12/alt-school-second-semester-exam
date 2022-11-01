@@ -9,7 +9,7 @@ const SharedNav = () => {
                 <NavLink to='/'>Home</NavLink>
             </div>
             <div>
-                <NavLink to='/repository'> Repository</NavLink>
+                <NavLink to='/solution/repository'> Solution</NavLink>
             </div>
         </nav>
 

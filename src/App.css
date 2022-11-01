@@ -21,6 +21,7 @@ nav{
   background: rgb(18, 14, 14);
   position: fixed;
   width: 100%;
+  z-index: 1;
 }
 
 a{
@@ -82,4 +83,34 @@ a{
   padding: 2rem;
   cursor: pointer;
   border-radius: 8px;
+  position: relative;
+}
+
+.solution-nav{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 3rem;
+
+}
+
+.nav-link{
+  font-size: 1.2rem;
+}
+
+.image-wrapper{
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+}
+
+.image-wrapper>img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
