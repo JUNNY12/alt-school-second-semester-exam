@@ -13,12 +13,12 @@ const TestError = () => {
     }
   return (
     <section className='section-container'>
-       <h1 className='header'>Test Error Boundary</h1>
-       <div className='counter'>
+       <h1 className='header' data-aos='fade-up' data-aos-duration='8000'>Test Error Boundary</h1>
+       <div className='counter'  data-aos='fade-right' data-aos-duration='8000'>
             <div className='count'>{counter}</div>
             <button className='btn-count' onClick={handleCount}>+</button>
        </div>
-       <div className='note'>
+       <div className='note'  data-aos='fade-left' data-aos-duration='8000'>
             <strong>
              <em>Note!!!</em>
             </strong>

@@ -4,8 +4,18 @@ import { Home, NotFound, Repository, SingleRepo, Solution, TestError} from './pa
 import SharedNav from './components/SharedNav';
 import { DataProvider } from './context/dataContext'
 import ErrorBoundary from './components/ErrorBoundary';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import {useEffect} from "react"
+
+
 
 function App() {
+
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh()
+  },[])
   return (
     <div className="App">
      <ErrorBoundary>

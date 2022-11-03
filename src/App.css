@@ -287,8 +287,8 @@ a {
 }
 
 .active-num {
-  background-color: whitesmoke;
-  color: black;
+  background-color: black;
+  color: white;
 }
 
 .dot {

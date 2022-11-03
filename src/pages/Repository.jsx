@@ -72,7 +72,7 @@ const Repository = () => {
             {
             currentRepoPerPage?.map(({id, name, owner,forks, language}) =>{
                 return(
-                    <div className="card" key={id}>
+                    <div className="card" key={id} data-aos="fade-up" data-aos-duration='8000'>
                         <h3 className='header-two'>{name}</h3>
                         <p className='fork'>No of Forks : {forks}</p>
                         <p className='language'>Language: {language}</p>
