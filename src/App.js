@@ -23,6 +23,7 @@ function App() {
           </Routes>
         </DataProvider>
      </ErrorBoundary>
+     
     </div>
   );
 }

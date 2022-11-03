@@ -12,6 +12,9 @@ const Solution = () => {
             <div>
                 <Link to='/solution/error-boundary' className='nav-link'>Error Boundary</Link>
             </div>
+            <div>
+                <Link className='nav-link' to='/help'>Not Found</Link>
+            </div>
         </div>
         <Outlet />
     </section>
