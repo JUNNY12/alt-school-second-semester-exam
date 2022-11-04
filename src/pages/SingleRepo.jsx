@@ -18,7 +18,7 @@ const repo = data?.find((repo) => repo.id === Number(id))
     <section className='repo-container'>
         <div className='grid-container'>
             <div className='repo-img'>
-                <img src={repo?.owner.avatar_url} />
+                <img src={repo?.owner.avatar_url} alt="repo" />
             </div>
 
             <div>
