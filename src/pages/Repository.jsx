@@ -76,7 +76,7 @@ const Repository = () => {
                         <h3 className='header-two'>{name}</h3>
                         <p className='fork'>No of Forks : {forks}</p>
                         <p className='language'>Language: {language}</p>
-                        <div className='image-wrapper'>
+                        <div className='image-wrapper' alt={name}>
                             <img src={owner.avatar_url} />
                         </div>
 
