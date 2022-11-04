@@ -27,7 +27,7 @@ const SharedNav = () => {
            <div className='nav'>
             <NavLink to='/'>
                 <div className='icon'>
-                    <img src={icon} />
+                    <img src={icon} alt="icon" />
                 </div>
             </NavLink>
             
