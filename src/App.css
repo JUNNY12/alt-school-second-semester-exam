@@ -164,6 +164,7 @@ a {
   place-items: center;
   background-color: black;
   color: antiquewhite;
+  margin: 0 1.5rem 0 1.5rem;
 }
 .page-not-found p {
   font-size: 3rem;
@@ -416,47 +417,6 @@ margin-bottom: 1rem;
 }
 
 
-#darkmode{
-  position: absolute;
-  right: 2rem;
-}
-
-#darkmode .dark {
-  background-color: #292c35;
-}
-#darkmode .checkbox {
-  opacity: 0;
-  position: absolute;
-}
-
-#darkmode .label {
-  width: 45px;
-  height: 20px;
-  background-color:#111;
-  display: flex;
-  border-radius:50px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 5px;
-  position: relative;
-  transform: scale(1.5);
-  cursor: pointer;
-}
-
-#darkmode .ball {
-  width: 22px;
-  height: 20px;
-  background-color: white;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 50%;
-  transition: transform 0.2s linear;
-}
-
-#darkmode .checkbox:checked + .label .ball{
-  transform: translateX(24px);
-}
 
 
 
