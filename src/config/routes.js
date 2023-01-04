@@ -13,7 +13,8 @@ export function Routes (){
             children:
             [
                 {path:'repository', element:<RepositoryPage />},
-                {path:'error-boundary', element:<TestErrorPage />}
+                {path:'error-boundary', element:<TestErrorPage />},
+                {path:'repo/:id' , element :<SingleRepoPage />}
             ]
             }
         ]

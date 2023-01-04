@@ -13,7 +13,7 @@ const Card = ({name,owner,forks, language,id}) => {
             <img src={owner.avatar_url} />
         </div>
 
-        <button className='btn-view' onClick={() => navigate(`/solution/repository/${id}`)}>
+        <button className='btn-view' onClick={() => navigate(`/solution/repo/${id}`)}>
             <AiFillEye /> 
         </button>
     </div>
