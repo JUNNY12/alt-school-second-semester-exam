@@ -1,13 +1,14 @@
 import './App.css';
-import {  Routes, Route } from 'react-router-dom';
-import { Home, NotFound, Repository, SingleRepo, Solution, TestError} from './pages';
-import SharedNav from './components/SharedNav';
 import { DataProvider } from './context/dataContext'
 import ErrorBoundary from './components/ErrorBoundary';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import {useEffect} from "react"
-
+import { Provider } from 'react-redux';
+import { store } from './state/store';
+import { Routes } from './config/routes';
+import { Suspense } from 'react';
+import { PreLoader } from './components/Loader';
 
 
 function App() {
@@ -19,19 +20,11 @@ function App() {
   return (
     <div className="App">
      <ErrorBoundary>
-      <DataProvider>
-          <Routes>
-            <Route path='/' element={<SharedNav />} >
-              <Route index element={<Home />} />
-              <Route path='/solution' element = {<Solution />}>
-                <Route index path='/solution/repository' element ={<Repository/>} />
-                <Route path='/solution/repository/:id' element ={<SingleRepo />} />
-                <Route path='/solution/error-boundary' element ={<TestError />} />
-              </Route>
-            </Route>
-            <Route path='*' element ={<NotFound />} />
-          </Routes>
-        </DataProvider>
+      <Provider store={store}>
+         <Suspense fallback={<PreLoader />}>
+          <Routes /> 
+         </Suspense>
+        </Provider>
      </ErrorBoundary>
      
     </div>

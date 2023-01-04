@@ -3,12 +3,14 @@ import {Link, useParams} from "react-router-dom"
 import {useContext} from 'react'
 import DataContext from '../context/dataContext'
 import {AiOutlineLink, AiOutlineArrowLeft} from "react-icons/ai"
+import { useGetReposQuery } from '../services/fetchRepo'
 
 const SingleRepo = () => {
-
+  
 const {id} = useParams()
 
-const {data} = useContext(DataContext)
+// const {data} = useContext(DataContext)
+const {data} = useGetReposQuery()
 
 const repo = data?.find((repo) => repo.id === Number(id))
 

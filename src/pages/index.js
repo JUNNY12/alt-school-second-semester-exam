@@ -1,15 +1,16 @@
-import Home from "./Home";
-import NotFound from "./NotFound";
-import Repository from "./Repository";
-import SingleRepo from "./SingleRepo";
-import Solution from "./Solution";
-import TestError from "./TestError";
+import React from "react";
+
+const HomePage = React.lazy(() => import("./Home"))
+const NotFoundPage = React.lazy(() => import("./NotFound"))
+const RepositoryPage = React.lazy(() => import("./Repository"))
+const TestErrorPage = React.lazy(() => import("./TestError"))
+const SingleRepoPage = React.lazy(() => import("./SingleRepo"))
+
 
 export {
-    Home,
-    NotFound,
-    Repository,
-    SingleRepo,
-    Solution,
-    TestError
+    HomePage,
+    NotFoundPage,
+    RepositoryPage,
+    SingleRepoPage,
+    TestErrorPage
 }

@@ -5,11 +5,12 @@ import {useState, useEffect} from "react"
 import icon from "../assets/download.svg"
 import { useLocation } from 'react-router-dom'
 
+
 const SharedNav = () => {
     const[show, setShow] = useState(false)
-
     const {pathname} = useLocation()
 
+    
     useEffect(() =>{
         setShow(true)
     }, [pathname])
@@ -25,7 +26,7 @@ const SharedNav = () => {
             </div>
 
            <div className='nav'>
-            <NavLink to='/'>
+            <NavLink to='/' className={({isActive}) => isActive? "active" : undefined } end>
                 <div className='icon'>
                     <img src={icon} alt="icon" />
                 </div>
@@ -33,13 +34,14 @@ const SharedNav = () => {
             
            <div className={!show? 'navs-link' : 'navs-link hide'}>
                 <div className='link'>
-                    <NavLink to='/'>Home</NavLink>
+                    <NavLink to='/' className={({isActive}) => isActive? "active" : undefined } end>Home</NavLink>
                 </div>
                 <div className='link'>
-                    <NavLink to='/solution/repository'> Solution</NavLink>
+                    <NavLink to='/solution/repository' className={({isActive}) => isActive? "active" : undefined } end> Solution</NavLink>
                 </div>
            </div>
            </div>
+
         </nav>
 
         <Outlet />

@@ -1,22 +1,22 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import DataContext from '../context/dataContext';
-import { useNavigate } from 'react-router-dom';
-import BounceLoader from "react-spinners/BounceLoader";
-import {AiFillEye} from "react-icons/ai"
+import { useGetReposQuery } from '../services/fetchRepo';
+import Card from '../components/Card';
+import { Loader } from '../components/Loader';
+import {GrCaretNext, GrCaretPrevious} from "react-icons/gr"
 
 
 
 const Repository = () => {
-    const {data, loading} = useContext(DataContext) 
-    const navigate = useNavigate()
+    // const {data, loading} = useContext(DataContext) 
+    const {data, isLoading, isSuccess} = useGetReposQuery()
+
 
     const [currentPage, setCurrentPage] = useState(1)
     const [repoPerPage] = useState(6)
     const [pageNumLimit] = useState(6)
     const [maxPageLimit, setMaxPageLimit] = useState(6)
     const [minPageLimit, setMinPageLimit] = useState(0)
-  
-    console.log(data)
   
     const pages = []
     for (let i=1; i<=Math.ceil(data?.length / repoPerPage); i++){
@@ -62,41 +62,27 @@ const Repository = () => {
     }
 
 
-    let populateRepo;
-    if (loading){
-        populateRepo = <div className='loader'><BounceLoader /></div>
-    }
-    else {
-        populateRepo = 
-        <div className="card-container">
-            {
-            currentRepoPerPage?.map(({id, name, owner,forks, language}) =>{
-                return(
-                    <div className="card" key={id} data-aos="fade-up" data-aos-duration='8000'>
-                        <h3 className='header-two'>{name}</h3>
-                        <p className='fork'>No of Forks : {forks}</p>
-                        <p className='language'>Language: {language}</p>
-                        <div className='image-wrapper' alt={name}>
-                            <img src={owner.avatar_url} />
-                        </div>
-
-                        <button className='btn-view' onClick={() => navigate(`/solution/repository/${id}`)}>
-                            <AiFillEye /> 
-                        </button>
-                    </div>
-                )
-            } )
-        }
-      </div>
-    }
-
   return (
     <section className='section-container' >
        <div className='repository'>
          <h1 className='header'>My Repositories</h1>
-         <div>
-            {populateRepo}
+         <div className='card-container'>
+         {
+            isSuccess && currentRepoPerPage?.map(({id, name, owner,forks, language}) =>{
+                return(
+                   <Card 
+                   id={id}
+                   key={id}
+                   name={name}
+                   owner={owner}
+                   forks={forks}
+                   language={language}
+                   />
+                )
+            } )
+        }
          </div>
+         {isLoading && <Loader />}
          <div>
          {
           data &&
@@ -106,7 +92,7 @@ const Repository = () => {
             onClick={handlePrevPage}
             disabled={currentPage === pages[0] ? true : false}
             >
-            Prev</button>
+            <GrCaretPrevious/></button>
             </div>
             {pageDecrementBtn}
             {pages.map((num) => {
@@ -131,7 +117,7 @@ const Repository = () => {
             <button 
             onClick={handleNextPage}
             disabled={currentPage === pages[pages.length-1] ? true : false}
-            >Next</button>
+            ><GrCaretNext /></button>
             </div>
           </div>
           }

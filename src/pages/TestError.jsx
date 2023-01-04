@@ -1,28 +1,35 @@
-import React from 'react'
-import { useState } from 'react'
+import { useDispatch } from "react-redux"
+import { increment,decrement } from "../state/slice/counterSlice"
+import { useSelector } from "react-redux"
 
 const TestError = () => {
+  const counter = useSelector((state) => state.counter.value)
+  console.log(counter)
 
-    const [counter, setCounter] = useState(0)
+  const dispatch = useDispatch()
 
-    const handleCount = () => {
-        setCounter(prevCount => prevCount + 1)
-    }
-    if(counter === 5){
+
+
+  const handleIncrement = () => dispatch(increment())
+  const handleDecrement = () => dispatch(decrement())
+
+    if(counter >= 5 || counter < 0){
         throw new Error('Oh!!! Sorry Dear, I crashed 😭😭😭')
     }
+
   return (
     <section className='section-container'>
        <h1 className='header' data-aos='fade-up' data-aos-duration='8000'>Test Error Boundary</h1>
        <div className='counter'  data-aos='fade-right' data-aos-duration='8000'>
+           <button className='btn-count' onClick={handleDecrement}>-</button>
             <div className='count'>{counter}</div>
-            <button className='btn-count' onClick={handleCount}>+</button>
+            <button className='btn-count' onClick={handleIncrement}>+</button>
        </div>
        <div className='note'  data-aos='fade-left' data-aos-duration='8000'>
             <strong>
              <em>Note!!!</em>
             </strong>
-           <p>When the counter gets to 5th count, it triggers an error...</p>
+           <p>When the counter is greater than or equal to 5 or less than 0, it triggers an error...</p>
        </div>
     </section>
   )
